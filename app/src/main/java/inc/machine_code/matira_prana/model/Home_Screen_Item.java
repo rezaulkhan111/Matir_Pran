@@ -1,4 +1,4 @@
-package inc.machine_code.matira_prana.Model;
+package inc.machine_code.matira_prana.model;
 
 import java.io.Serializable;
 

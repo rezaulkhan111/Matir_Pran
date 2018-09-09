@@ -1,4 +1,4 @@
-package inc.machine_code.matira_prana.Adapter;
+package inc.machine_code.matira_prana.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,13 +10,14 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import inc.machine_code.matira_prana.Model.Default_Item;
+import inc.machine_code.matira_prana.model.Default_Item;
 import inc.machine_code.matira_prana.R;
+import inc.machine_code.matira_prana.view_holder.Default_View_Holder;
 
-public class DefaultAdapter extends RecyclerView.Adapter<DefaultAdapter.ViewHolder>{
+public class DefaultAdapter extends RecyclerView.Adapter<Default_View_Holder> {
     private InterfaceCallback callback;
-    public ArrayList<Default_Item> default_item_ArrayList;
-    Default_Item default_itemObj;
+    private ArrayList<Default_Item> default_item_ArrayList;
+    private Default_Item default_itemObj;
 
     public DefaultAdapter(InterfaceCallback callback, ArrayList<Default_Item> defult_classArrayList) {
         this.callback = callback;
@@ -24,66 +25,72 @@ public class DefaultAdapter extends RecyclerView.Adapter<DefaultAdapter.ViewHold
     }
 
     public interface InterfaceCallback {
-        void inClickEvent(Default_Item satellite);
+        void inClickEvent(Default_Item default_item, String serial_No);
 
     }
 
-    public class EmptyHolder extends Defult_View_Holder {
+//    public class EmptyHolder extends Defult_View_Holder {
+//
+//        public EmptyHolder(View view) {
+//            super(view);
+//        }
+//    }
 
-        public EmptyHolder(View view) {
-            super(view);
-        }
-    }
-
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull Default_View_Holder default_view_holder, final int position) {
         try {
-            holder.onBind(position);
+            default_view_holder.onBind(position);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        default_view_holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 default_itemObj = new Default_Item();
+                String get_Serial_No = default_item_ArrayList.get(position).getSerial_NO();
                 Default_Item defult_class = default_item_ArrayList.get(position);
-                callback.inClickEvent(defult_class);
+                callback.inClickEvent(defult_class, get_Serial_No);
             }
         });
     }
+
+//    @Override
+//    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+//
+//    }
 
     @Override
     public int getItemCount() {
         return default_item_ArrayList.size();
     }
 
-    class Defult_View_Holder extends RecyclerView.ViewHolder {
-        ImageView p_image;
-        TextView p_name,
-                p_range,
-                p_type;
+//    class Defult_View_Holder extends RecyclerView.ViewHolder {
+//        ImageView p_image;
+//        TextView p_name,
+//                p_range,
+//                p_type;
+//
+//        public Defult_View_Holder(View view) {
+//            super(view);
+//            p_image = view.findViewById(R.id.iv_any_photo);
+//            p_name = view.findViewById(R.id.tv_name);
+//            p_range = view.findViewById(R.id.tv_range);
+//            p_type = view.findViewById(R.id.tv_type);
+//        }
+//    }
 
-        public Defult_View_Holder(View view) {
-            super(view);
-            p_image = view.findViewById(R.id.iv_any_photo);
-            p_name = view.findViewById(R.id.tv_name);
-            p_range = view.findViewById(R.id.tv_range);
-            p_type = view.findViewById(R.id.tv_type);
-        }
-    }
-
-
-    public class ViewHolder extends Defult_View_Holder {
+    public class ViewHolder extends Default_View_Holder {
         ImageView image_photo;
         TextView p_name,
                 p_range,
                 p_type;
 
-        public ViewHolder(View v) {
+        private ViewHolder(View v) {
             super(v);
             image_photo = v.findViewById(R.id.iv_any_photo);
             p_name = v.findViewById(R.id.tv_name);

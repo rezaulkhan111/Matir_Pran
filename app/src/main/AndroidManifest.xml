@@ -16,8 +16,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".All_Activity.HomeActivity" />
-        <activity android:name=".All_Activity.DefaultActivity"></activity>
+        <activity android:name=".all_activity.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HOME" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".all_activity.DefaultActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".all_activity.All_Text_View_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.ALL_TEXT_VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

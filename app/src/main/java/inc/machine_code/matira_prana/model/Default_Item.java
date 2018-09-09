@@ -1,22 +1,32 @@
-package inc.machine_code.matira_prana.Model;
+package inc.machine_code.matira_prana.model;
 
 import java.io.Serializable;
 
 public class Default_Item implements Serializable {
+    private String Serial_NO;
     private String Name;
     private String Range;
     private String Type;
     private int image;
 
-    public Default_Item(String name, String range, String type, int image) {
-        Name = name;
-        Range = range;
-        Type = type;
+    public Default_Item(String Serial_NO, String name, String range, String type, int image) {
+        this.Serial_NO = Serial_NO;
+        this.Name = name;
+        this.Range = range;
+        this.Type = type;
         this.image = image;
     }
 
     public Default_Item() {
 
+    }
+
+    public String getSerial_NO() {
+        return Serial_NO;
+    }
+
+    public void setSerial_NO(String serial_NO) {
+        Serial_NO = serial_NO;
     }
 
     public String getName() {

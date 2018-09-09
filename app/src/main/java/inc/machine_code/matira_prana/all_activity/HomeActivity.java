@@ -1,9 +1,8 @@
-package inc.machine_code.matira_prana.All_Activity;
+package inc.machine_code.matira_prana.all_activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,10 +16,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import inc.machine_code.matira_prana.Adapter.GridViewAdapter;
-import inc.machine_code.matira_prana.Adapter.ListViewAdapter;
-import inc.machine_code.matira_prana.Model.Default_Item;
-import inc.machine_code.matira_prana.Model.Home_Screen_Item;
+import inc.machine_code.matira_prana.adapter.GridViewAdapter;
+import inc.machine_code.matira_prana.adapter.ListViewAdapter;
+import inc.machine_code.matira_prana.model.Default_Item;
+import inc.machine_code.matira_prana.model.Home_Screen_Item;
 import inc.machine_code.matira_prana.R;
 
 public class HomeActivity extends Activity {
@@ -137,13 +136,37 @@ public class HomeActivity extends Activity {
         return true;
     }
 
+    AdapterView.OnItemClickListener onItemClick = new AdapterView.OnItemClickListener() {
+
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            Intent intent = new Intent(getApplicationContext(), DefaultActivity.class);
+            switch (position) {
+                case 0:
+                    intent.putExtra("savedUser", (Serializable) Number1List());
+                    startActivity(intent);
+                    break;
+                case 1:
+                    //callGo.inClickDefult(Number1List());
+//                    intent.putExtra("savedUser", (Serializable) Number2List());
+//                    startActivity(intent);
+                    break;
+                case 2:
+//                    intent.putExtra("savedUser", (Serializable) Number3List());
+//                    startActivity(intent);
+                    break;
+            }
+
+        }
+    };
+
     public List<Default_Item> Number1List() {
         defult_classList = new ArrayList<>();
-        defult_classList.add(new Default_Item("aaaaa", "10>50", "Matira_prana", R.mipmap.ic_potasiam_foreground));
-        defult_classList.add(new Default_Item("aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
-        defult_classList.add(new Default_Item("aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
-        defult_classList.add(new Default_Item("aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
-        defult_classList.add(new Default_Item("aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
+        defult_classList.add(new Default_Item("1", "aaaaa", "10>50", "Matira_prana", R.mipmap.ic_potasiam_foreground));
+        defult_classList.add(new Default_Item("2", "aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
+        defult_classList.add(new Default_Item("3", "aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
+        defult_classList.add(new Default_Item("4", "aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
+        defult_classList.add(new Default_Item("5", "aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
         return defult_classList;
     }
 
@@ -168,28 +191,4 @@ public class HomeActivity extends Activity {
 //    }
 
 
-    AdapterView.OnItemClickListener onItemClick = new AdapterView.OnItemClickListener() {
-
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
-            switch (position) {
-                case 0:
-                    Intent intent = new Intent(getApplicationContext(), DefaultActivity.class);
-                    intent.putExtra("savedUser", (Serializable) Number1List());
-                    startActivity(intent);
-                    break;
-                case 1:
-                    //callGo.inClickDefult(Number1List());
-//                    intent.putExtra("savedUser", (Serializable) Number2List());
-//                    startActivity(intent);
-                    break;
-                case 2:
-//                    intent.putExtra("savedUser", (Serializable) Number3List());
-//                    startActivity(intent);
-                    break;
-            }
-
-        }
-    };
 }

@@ -6,7 +6,7 @@
     android:background="@drawable/home_backgound_horizontal"
     android:orientation="vertical"
     android:scaleType="fitXY"
-    tools:context=".All_Activity.HomeActivity">
+    tools:context=".all_activity.HomeActivity">
 
 
     <ViewStub

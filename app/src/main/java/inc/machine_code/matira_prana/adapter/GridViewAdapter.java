@@ -1,4 +1,4 @@
-package inc.machine_code.matira_prana.Adapter;
+package inc.machine_code.matira_prana.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,14 +12,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import inc.machine_code.matira_prana.Model.Home_Screen_Item;
+import inc.machine_code.matira_prana.model.Home_Screen_Item;
 import inc.machine_code.matira_prana.R;
 
-public class ListViewAdapter extends ArrayAdapter<Home_Screen_Item>{
-    public ListViewAdapter(@NonNull Context context, int resource, @NonNull List<Home_Screen_Item> objects) {
+public class GridViewAdapter extends ArrayAdapter<Home_Screen_Item> {
+    public GridViewAdapter(@NonNull Context context, int resource, @NonNull List<Home_Screen_Item> objects) {
         super(context, resource, objects);
     }
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -27,7 +26,7 @@ public class ListViewAdapter extends ArrayAdapter<Home_Screen_Item>{
 
         if(null==v){
             LayoutInflater inflater=(LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v=inflater.inflate(R.layout.list_item,null);
+            v=inflater.inflate(R.layout.grid_item,null);
         }
         Home_Screen_Item home_screen_item=getItem(position);
         ImageView imageView=v.findViewById(R.id.iv_gv_image_icon_id);
