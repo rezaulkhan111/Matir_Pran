@@ -1,8 +1,10 @@
-package inc.machine_code.matira_prana.all_activity;
+package inc.machine_code.matira_prana;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,19 +20,17 @@ import java.util.List;
 
 import inc.machine_code.matira_prana.adapter.GridViewAdapter;
 import inc.machine_code.matira_prana.adapter.ListViewAdapter;
+import inc.machine_code.matira_prana.all_activity.DefaultActivity;
 import inc.machine_code.matira_prana.model.Default_Item;
 import inc.machine_code.matira_prana.model.Home_Screen_Item;
-import inc.machine_code.matira_prana.R;
 
-public class HomeActivity extends Activity {
+public class SecoundActivity extends Activity {
 
     private ViewStub stubList;
     private ViewStub stubGrid;
     private ListView listView;
     //  private InterfaceCallbackM callGo;
     private GridView gridView;
-    private ListViewAdapter listViewAdapter;
-    private GridViewAdapter gridViewAdapter;
     private List<Home_Screen_Item> home_screen_itemList;
     private int currentViewMode = 1;
 
@@ -43,11 +43,19 @@ public class HomeActivity extends Activity {
 //        void inClickDefult(List<Defult_Class> satellite);
 //
 //    }
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_secound);
 
+//        View someView = findViewById(R.id.rv_show_backgound);
+//
+//        // Find the root view
+//        View root = someView.getRootView();
+//
+//        // Set the color
+//        root.setBackgroundResource(getResources().getColor(android.R.mipmap.sym_def_app_icon));
 
         stubList = findViewById(R.id.stub_list);
         stubGrid = findViewById(R.id.stub_grid);
@@ -73,11 +81,11 @@ public class HomeActivity extends Activity {
 
     public List<Home_Screen_Item> getProductList() {
         home_screen_itemList = new ArrayList<>();
-        home_screen_itemList.add(new Home_Screen_Item(R.mipmap.ic_potential_of_hydrogen_foreground, "Potential Of Hydrogen"));
-        home_screen_itemList.add(new Home_Screen_Item(R.mipmap.ic_naitrogen_foreground, "Nitrogen"));
-        home_screen_itemList.add(new Home_Screen_Item(R.mipmap.ic_posporas_foreground, "Phosphorus"));
-        home_screen_itemList.add(new Home_Screen_Item(R.mipmap.ic_potasiam_foreground, "Potassium"));
-        home_screen_itemList.add(new Home_Screen_Item(R.mipmap.ic_potasiam_foreground, "Photo"));
+        home_screen_itemList.add(new Home_Screen_Item(R.mipmap.ic_potential_of_hydrogen_foreground, "পিএইচ"));
+        home_screen_itemList.add(new Home_Screen_Item(R.mipmap.ic_naitrogen_foreground, "নাট্রোজেন"));
+        home_screen_itemList.add(new Home_Screen_Item(R.mipmap.ic_posporas_foreground, "ফসফরাস"));
+        home_screen_itemList.add(new Home_Screen_Item(R.mipmap.ic_potasiam_foreground, "পটাশিয়াম"));
+        home_screen_itemList.add(new Home_Screen_Item(R.mipmap.ic_moisture_foreground, "আদ্রতা"));
         return home_screen_itemList;
     }
 
@@ -97,12 +105,12 @@ public class HomeActivity extends Activity {
     private void setAdapter() {
 
         if (VIEW_MODE_GRID_VIEW == currentViewMode) {
-            gridViewAdapter = new GridViewAdapter(this, R.layout.grid_item, home_screen_itemList);
+            GridViewAdapter gridViewAdapter = new GridViewAdapter(this, R.layout.grid_item, home_screen_itemList);
             gridView.setAdapter(gridViewAdapter);
             gridView.setOnItemClickListener(onItemClick);
 
         } else {
-            listViewAdapter = new ListViewAdapter(this, R.layout.list_item, home_screen_itemList);
+            ListViewAdapter listViewAdapter = new ListViewAdapter(this, R.layout.list_item, home_screen_itemList);
             listView.setAdapter(listViewAdapter);
             listView.setOnItemClickListener(onItemClick);
         }
@@ -143,52 +151,54 @@ public class HomeActivity extends Activity {
             Intent intent = new Intent(getApplicationContext(), DefaultActivity.class);
             switch (position) {
                 case 0:
-                    intent.putExtra("savedUser", (Serializable) Number1List());
+                    intent.putExtra("savedUser", (Serializable) Potential_of_Hydrogen_List());
                     startActivity(intent);
                     break;
                 case 1:
-                    //callGo.inClickDefult(Number1List());
-//                    intent.putExtra("savedUser", (Serializable) Number2List());
-//                    startActivity(intent);
+                    intent.putExtra("savedUser", (Serializable) Naitrogen_List());
+                    startActivity(intent);
                     break;
                 case 2:
-//                    intent.putExtra("savedUser", (Serializable) Number3List());
-//                    startActivity(intent);
+                    intent.putExtra("savedUser", (Serializable) Phosphorus_List());
+                    startActivity(intent);
+                    break;
+                case 3:
+                    intent.putExtra("savedUser", (Serializable) Potassium_List());
+                    startActivity(intent);
                     break;
             }
 
         }
     };
 
-    public List<Default_Item> Number1List() {
+    public List<Default_Item> Potential_of_Hydrogen_List() {
         defult_classList = new ArrayList<>();
-        defult_classList.add(new Default_Item("1", "aaaaa", "10>50", "Matira_prana", R.mipmap.ic_potasiam_foreground));
-        defult_classList.add(new Default_Item("2", "aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
-        defult_classList.add(new Default_Item("3", "aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
-        defult_classList.add(new Default_Item("4", "aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
-        defult_classList.add(new Default_Item("5", "aaaaa", "10>50", "IIIO", R.mipmap.ic_potasiam_foreground));
+        defult_classList.add(new Default_Item("1", "পিএইচ", "১-৫.৯৯", "এসিডিয়", R.mipmap.ic_potential_of_hydrogen_foreground));
+        defult_classList.add(new Default_Item("2", "পিএইচ", "৬-৭.৫", "নিরপেক্ষ", R.mipmap.ic_potential_of_hydrogen_foreground));
+        defult_classList.add(new Default_Item("3", "পিএইচ", "৭.৬-১৪", "ক্ষারীয়", R.mipmap.ic_potential_of_hydrogen_foreground));
         return defult_classList;
     }
 
-//    public List<Defult_Class> Number2List() {
-//        List<Defult_Class> defult_classList = new ArrayList<>();
-//        defult_classList.add(new Defult_Class("aaaaa", "10>50", "IIIO", R.mipmap.ic_naitrogen_foreground));
-//        defult_classList.add(new Defult_Class("aaaaa", "10>50", "IIIO", R.mipmap.ic_naitrogen_foreground));
-//        defult_classList.add(new Defult_Class("aaaaa", "10>50", "IIIO", R.mipmap.ic_naitrogen_foreground));
-//        defult_classList.add(new Defult_Class("aaaaa", "10>50", "IIIO", R.mipmap.ic_naitrogen_foreground));
-//        defult_classList.add(new Defult_Class("aaaaa", "10>50", "IIIO", R.mipmap.ic_naitrogen_foreground));
-//        return defult_classList;
-//    }
+    public List<Default_Item> Naitrogen_List() {
+        List<Default_Item> defult_classList = new ArrayList<>();
+        defult_classList.add(new Default_Item("4", "অভাবজনিত লক্ষণ", "", "", R.mipmap.ic_naitrogen_foreground));
+        defult_classList.add(new Default_Item("5", "প্রতিকার", "", "", R.mipmap.ic_naitrogen_foreground));
+        return defult_classList;
+    }
 
-//    public List<Defult_Class> Number3List() {
-//        List<Defult_Class> defult_classList = new ArrayList<>();
-//        defult_classList.add(new Defult_Class("aaaaa", "10>50", "IIIO", R.drawable.header_image));
-//        defult_classList.add(new Defult_Class("aaaaa", "10>50", "IIIO", R.drawable.header_image));
-//        defult_classList.add(new Defult_Class("aaaaa", "10>50", "IIIO", R.drawable.header_image));
-//        defult_classList.add(new Defult_Class("aaaaa", "10>50", "IIIO", R.drawable.header_image));
-//        defult_classList.add(new Defult_Class("aaaaa", "10>50", "IIIO", R.drawable.header_image));
-//        return defult_classList;
-//    }
+    public List<Default_Item> Phosphorus_List() {
+        List<Default_Item> defult_classList = new ArrayList<>();
+        defult_classList.add(new Default_Item("6", "অভাবজনিত লক্ষণ", "", "", R.mipmap.ic_posporas_foreground));
+        defult_classList.add(new Default_Item("7", "প্রতিকার", "", "", R.mipmap.ic_posporas_foreground));
+        return defult_classList;
+    }
+
+    public List<Default_Item> Potassium_List() {
+        List<Default_Item> defult_classList = new ArrayList<>();
+        defult_classList.add(new Default_Item("8", "অভাবজনিত লক্ষণ", "", "", R.mipmap.ic_potasiam_foreground));
+        defult_classList.add(new Default_Item("9", "প্রতিকার", "", "", R.mipmap.ic_potasiam_foreground));
+        return defult_classList;
+    }
 
 
 }

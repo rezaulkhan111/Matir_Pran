@@ -29,13 +29,6 @@ public class DefaultAdapter extends RecyclerView.Adapter<Default_View_Holder> {
 
     }
 
-//    public class EmptyHolder extends Defult_View_Holder {
-//
-//        public EmptyHolder(View view) {
-//            super(view);
-//        }
-//    }
-
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_item, parent, false));
@@ -59,30 +52,10 @@ public class DefaultAdapter extends RecyclerView.Adapter<Default_View_Holder> {
         });
     }
 
-//    @Override
-//    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-//
-//    }
-
     @Override
     public int getItemCount() {
         return default_item_ArrayList.size();
     }
-
-//    class Defult_View_Holder extends RecyclerView.ViewHolder {
-//        ImageView p_image;
-//        TextView p_name,
-//                p_range,
-//                p_type;
-//
-//        public Defult_View_Holder(View view) {
-//            super(view);
-//            p_image = view.findViewById(R.id.iv_any_photo);
-//            p_name = view.findViewById(R.id.tv_name);
-//            p_range = view.findViewById(R.id.tv_range);
-//            p_type = view.findViewById(R.id.tv_type);
-//        }
-//    }
 
     public class ViewHolder extends Default_View_Holder {
         ImageView image_photo;

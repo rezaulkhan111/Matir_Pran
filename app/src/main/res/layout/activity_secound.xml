@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_backgound_horizontal"
+    android:background="@drawable/home_backgound"
     android:orientation="vertical"
-    android:scaleType="fitXY"
-    tools:context=".all_activity.HomeActivity">
+    android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+    tools:context=".SecoundActivity">
 
 
     <ViewStub
@@ -22,5 +22,4 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout="@layout/my_grid_view" />
-
 </RelativeLayout>

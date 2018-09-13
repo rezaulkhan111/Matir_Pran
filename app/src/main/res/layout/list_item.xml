@@ -11,7 +11,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@mipmap/ic_launcher_icon"
+        android:contentDescription="@string/list_image_id" />
 
     <TextView
         android:id="@+id/tv_description_id"
@@ -20,6 +21,5 @@
         android:layout_below="@id/iv_gv_image_icon_id"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:text="AAAAAAAAAAAAAA"
         android:textColor="#faf7f7" />
 </RelativeLayout>

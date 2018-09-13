@@ -1,6 +1,7 @@
 package inc.machine_code.matira_prana.all_activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -22,5 +23,6 @@ public class All_Text_View_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         String getString = intent.getExtras().getString("SendData");
         m_show_all_text.setText(getString);
+        m_show_all_text.setTextColor(Color.rgb(255, 102, 140));
     }
 }

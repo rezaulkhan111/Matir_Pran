@@ -11,7 +11,6 @@ import android.widget.Toast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import inc.machine_code.matira_prana.all_activity.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -39,8 +38,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         User_Name = m_User_Name.getText().toString();
         Pass_Word = m_Pass_Word.getText().toString();
 
-        if (isEmailValid(User_Name)== true && !Pass_Word.equals("")) {
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        if (isEmailValid(User_Name) == true && !Pass_Word.equals("")) {
+            Intent intent = new Intent(getApplicationContext(), SecoundActivity.class);
             startActivity(intent);
             m_User_Name.getText().clear();
             m_Pass_Word.getText().clear();

@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <ImageView
+        android:id="@+id/iv_login_page_logo"
+        android:layout_width="266dp"
+        android:layout_height="266dp"
+        android:layout_above="@+id/et_user_name"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/login_page_logo"
+        android:contentDescription="@string/login_logo" />
+
     <EditText
         android:id="@+id/et_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/et_pass_word"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="173dp"
         android:ems="10"
-        android:hint="Email Or User Name"
+        android:hint="@string/email_or_user_name_text"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="84dp"
         tools:layout_editor_absoluteY="168dp" />
@@ -22,10 +32,10 @@
         android:id="@+id/et_pass_word"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_user_name"
-        android:layout_centerInParent="true"
+        android:layout_above="@+id/bt_login_in"
+        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password_text"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="222dp" />
@@ -34,9 +44,10 @@
         android:id="@+id/bt_login_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_pass_word"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Login in"
+        android:layout_marginBottom="126dp"
+        android:text="@string/login_in_text"
         android:textAlignment="center" />
 
 </RelativeLayout>

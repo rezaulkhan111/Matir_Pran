@@ -14,7 +14,7 @@
             android:id="@+id/iv_any_photo"
             android:layout_width="92dp"
             android:layout_height="match_parent"
-            android:contentDescription="text"
+            android:contentDescription="@string/launch_date_text"
             app:srcCompat="@android:drawable/ic_delete" />
 
         <TextView
@@ -27,7 +27,7 @@
             android:layout_marginTop="3dp"
             android:maxLength="20"
             android:maxWidth="150dp"
-            android:text="text"
+            android:text="@string/name_text"
             android:textAlignment="center"
             android:textColor="#61d05d" />
 
@@ -43,7 +43,7 @@
             android:layout_marginStart="93dp"
             android:maxLength="25"
             android:maxWidth="150dp"
-            android:text="text"
+            android:text="@string/range_text"
             android:textAlignment="center"
             android:textColor="#faf7f7" />
 
@@ -58,7 +58,6 @@
             android:layout_marginRight="3dp"
             android:layout_marginTop="3dp"
             android:maxWidth="150dp"
-            android:text="text"
             android:textAlignment="center"
             android:textColor="#d72a92" />
 
@@ -73,7 +72,6 @@
             android:layout_marginEnd="3dp"
             android:layout_marginRight="3dp"
             android:maxWidth="150dp"
-            android:text="text"
             android:textAlignment="center"
             android:textColor="#f0d044" />
     </RelativeLayout>
